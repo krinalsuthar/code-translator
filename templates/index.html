@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            overflow-x: auto;
+        }
+        
+        h2 {
+            color: #007bff;
+        }
+        
+        .result-section {
+            margin-top: 20px;
+        }
+        
+        .result-section h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Code Translator</h1>
+        <form method="post">
+            <textarea name="source_code" rows="10" placeholder="Enter your code here...">{{ request.form.get('source_code') }}</textarea><br>
+            <label for="source_language">Source Language:</label>
+            <select name="source_language">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="ruby">Ruby</option>
+                <!-- Add more source languages here -->
+            </select><br>
+            <label for="target_language">Target Language:</label>
+            <select name="target_language">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+                <option value="ruby">Ruby</option>
+                <!-- Add more target languages here -->
+            </select><br>
+            <input type="submit" value="Translate and Execute">
+        </form>
+
+        {% if result %}
+        <div class="result-section">
+            <h2>Translated Code:</h2>
+            <pre>{{ code }}</pre>
+            <h2>Execution Output:</h2>
+            <pre>{{ result.output }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
