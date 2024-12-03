@@ -1,4 +1,4 @@
-# 🌐 [Code Translator](https://gleaming-mousse-80da58.netlify.app/)
+# 🌐 [Code Translator](https://code-translator-zp3m.onrender.com/)
 A powerful, multilingual code translator built with Python and Flask! 🚀
 
 # 🖥️ About the Project
@@ -11,7 +11,7 @@ Code Translator is a web-based application designed to seamlessly convert code b
 📄 Real-Time Translation: Enter your code and see instant results.<br/>
 💾 Export Option: Save your translated code for later use.<br/>
 🚀 Live Demo
-Check out the live version: https://gleaming-mousse-80da58.netlify.app/
+Check out the live version: https://code-translator-zp3m.onrender.com/
 
 # 🔄 How It Works
 🌟 Select your source and target languages.<br/>
