@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO)
 
 def python_to_java(python_code):
     replacements = {
@@ -263,5 +265,5 @@ def index():
         return render_template("index.html", languages=["Python", "Java", "JavaScript", "C"])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5000)
         
