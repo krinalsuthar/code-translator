@@ -4,123 +4,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Translator</title>
+    <title>Multilingual Code Translator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
             color: #333;
         }
-        
+
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 50px auto;
             background: #fff;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         h1 {
             text-align: center;
-            color: #007bff;
+            color: #5a5a5a;
         }
-        
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            resize: vertical;
-        }
-        
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-        
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        input[type="submit"] {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin: 20px 0;
-            background-color: #007bff;
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-        
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 10px;
-            overflow-x: auto;
-        }
-        
-        h2 {
-            color: #007bff;
-        }
-        
-        .result-section {
+
+        form {
             margin-top: 20px;
         }
-        
-        .result-section h2 {
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        select,
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #5a67d8;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #434fc1;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f3ff;
+            border-left: 5px solid #2196f3;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Code Translator</h1>
-        <form method="post">
-            <textarea name="source_code" rows="10" placeholder="Enter your code here...">{{ request.form.get('source_code') }}</textarea><br>
-            <label for="source_language">Source Language:</label>
-            <select name="source_language">
-                <option value="python">Python</option>
-                <option value="javascript">JavaScript</option>
-                <option value="ruby">Ruby</option>
-                <!-- Add more source languages here -->
-            </select><br>
-            <label for="target_language">Target Language:</label>
-            <select name="target_language">
-                <option value="javascript">JavaScript</option>
-                <option value="python">Python</option>
-                <option value="ruby">Ruby</option>
-                <!-- Add more target languages here -->
-            </select><br>
-            <input type="submit" value="Translate and Execute">
-        </form>
+        <h1>Multilingual Code Translator</h1>
+        <form method="POST" action="/">
+            <label for="source_lang">Source Language:</label>
+            <select name="source_lang" id="source_lang">
+                <option value="Python" {% if source_lang=="Python" %}selected{% endif %}>Python</option>
+                <option value="Java" {% if source_lang=="Java" %}selected{% endif %}>Java</option>
+                <option value="JavaScript" {% if source_lang=="JavaScript" %}selected{% endif %}>JavaScript</option>
+                <option value="C" {% if source_lang=="C" %}selected{% endif %}>C</option>
+            </select>
 
-        {% if result %}
-        <div class="result-section">
-            <h2>Translated Code:</h2>
-            <pre>{{ code }}</pre>
-            <h2>Execution Output:</h2>
-            <pre>{{ result.output }}</pre>
-        </div>
-        {% endif %}
+            <label for="target_lang">Target Language:</label>
+            <select name="target_lang" id="target_lang">
+                <option value="Python" {% if target_lang=="Python" %}selected{% endif %}>Python</option>
+                <option value="Java" {% if target_lang=="Java" %}selected{% endif %}>Java</option>
+                <option value="JavaScript" {% if target_lang=="JavaScript" %}selected{% endif %}>JavaScript</option>
+                <option value="C" {% if target_lang=="C" %}selected{% endif %}>C</option>
+            </select>
+
+            <label for="source_code">Source Code:</label>
+            <textarea name="source_code" id="source_code">{{ source_code or '' }}</textarea>
+
+            <button type="submit">Translate</button>
+
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+            {% if translated_code %}
+            <div class="result">
+                <h3>Translated Code:</h3>
+                <pre>{{ translated_code }}</pre>
+            </div>
+            {% endif %}
+        </form>
     </div>
 </body>
 
