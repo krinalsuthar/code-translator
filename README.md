@@ -9,7 +9,6 @@ Code Translator is a web-based application designed to seamlessly convert code b
 🛠️ Syntax Mapping: Converts language-specific constructs with precision.<br/>
 🌐 Web-Based: Built with Flask for a simple and interactive user experience.<br/>
 📄 Real-Time Translation: Enter your code and see instant results.<br/>
-💾 Export Option: Save your translated code for later use.<br/>
 🚀 Live Demo
 Check out the live version: https://code-translator-zp3m.onrender.com/
 
