@@ -32,7 +32,8 @@ Languages Supported: Python, JavaScript, Java, C 🌍
 # 📝 Installation
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/code-translator.git
+git clone 
+git clone https://github.com/krinalsuthar/code-translator.git
 ```
 
 Navigate to the project directory:
