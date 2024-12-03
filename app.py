@@ -24,6 +24,7 @@ def java_to_python(java_code):
         "void ": "def ",
         "{": ":",
         "}": "",
+        "int":""
     }
     python_code = []
     for line in java_code.splitlines():
