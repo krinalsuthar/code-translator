@@ -5,7 +5,7 @@ A powerful, multilingual code translator built with Python and Flask! 🚀
 Code Translator is a web-based application designed to seamlessly convert code between multiple programming languages. Whether you're working with Python, JavaScript, Java, or c, this tool has you covered! 🎉
 
 # 🔑 Key Features
-🌟 Multilingual Support: Supports Python, JavaScript, Java, C++, and Ruby.<br/>
+🌟 Multilingual Support: Supports Python, JavaScript, Java and C.<br/>
 🛠️ Syntax Mapping: Converts language-specific constructs with precision.<br/>
 🌐 Web-Based: Built with Flask for a simple and interactive user experience.<br/>
 📄 Real-Time Translation: Enter your code and see instant results.<br/>
